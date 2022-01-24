@@ -1,0 +1,3 @@
+#Guess the Word!
+
+The application is essentially a guess the word game' in which the user will be have to correctly find out a particular lettered word which is randomly generated from a copyright free text. The user can make a specified number of attempts to guess the word correctly and after each unsuccessful attempt the application will provide the user with a clue. If the user fail to find the word within a speculative number of attempts, the user loses but they can always try again.
