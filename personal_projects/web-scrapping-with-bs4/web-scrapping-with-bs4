@@ -1,0 +1,31 @@
+# scrapping some data from a webpage.
+import requests
+from bs4 import BeautifulSoup
+
+# request and parse the webpage.
+source = requests.get('https://coreyms.com').text
+soup = BeautifulSoup(source, 'lxml')
+
+# iterate thorugh the parsed HTML file.
+articles = soup.find_all("article")
+for article in articles:
+    title = article.header.a.text
+    try:
+        contents = article.find('div', class_="entry-content")
+        content = contents.p.text
+    except TypeError:
+        content = None
+    
+    try:
+        links = article.find('iframe')['src']
+        yt_link = links.split('?')[0]
+    except TypeError:
+        yt_link = None
+    print(title)
+    print()
+    print(content)
+    print()
+    print(yt_link)
+    print()
+    print()
+    
